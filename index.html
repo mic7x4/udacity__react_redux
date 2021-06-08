@@ -103,7 +103,7 @@
       }
 
       // Creating Store
-      const store = createStore(app);
+      const store = Redux.createStore(app);
       store.subscribe(() => {
         const { goals, todos } = store.getState();
         // Reset the DOM
@@ -160,7 +160,7 @@
         });
 
         node.appendChild(text);
-        node.appendChild(removeBtn)
+        node.appendChild(removeBtn);
         document.getElementById("todos").appendChild(node);
 
         node.style.textDecoration = todo.complete ? "line-through" : "none";
@@ -172,14 +172,13 @@
       function addGoalToDOM(goal) {
         const node = document.createElement("li");
         const text = document.createTextNode(goal.name);
-        
+
         const removeBtn = createRemoveButton(() => {
           store.dispatch(removeGoalAction(goal.id));
         });
 
-
         node.appendChild(text);
-        node.appendChild(removeBtn)
+        node.appendChild(removeBtn);
         document.getElementById("goals").appendChild(node);
       }
     </script>
